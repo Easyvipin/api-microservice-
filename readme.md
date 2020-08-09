@@ -163,4 +163,124 @@ var findOneByFood = function(food, done) {
 };
 ```
 
+#### Use model.findById() to Search Your Database By _id
 
+### <ins>Solution</ins>
+
+`app.js`
+
+```
+// When saving a document, mongodb automatically add the field `_id`,
+// and set it to a unique alphanumeric key. Searching by `_id` is an
+// extremely frequent operation, so `moongose` provides a dedicated
+// method for it. Find the (only!!) person having a certain Id,
+// using `Model.findById() -> Person`.
+// Use the function argument 'personId' as search key.
+
+var findPersonById = function(personId, done) {
+  Person.findById(personId,function(err,data){
+    if(err) return console.error(err)
+      done(null, data);
+  })
+  
+```
+
+#### Perform Classic Updates by Running Find, Edit, then Save
+
+### <ins>Solution</ins>
+
+`app.js`
+
+```
+var findEditThenSave = function(personId, done) {  
+  var foodToAdd = 'hamburger';
+  Person.findById(personId,function(err,dataPerson){ // dataPerson is a document returned by findByID() .
+    if(err) return console.error(err);
+    dataPerson.favoriteFoods.push(foodToAdd)
+    dataPerson.save(function(err,data){ // SAVE the document
+      if(err) return console.error(err);
+      done(null, data);
+    });
+  })
+  
+};
+// The above update of document combine of callbacks ,you can also do this by async function
+  
+```
+
+#### Perform New Updates on a Document Using model.findOneAndUpdate()
+
+### <ins>Solution</ins>
+
+`app.js`
+
+```
+var findAndUpdate = function(personName, done) {
+  var ageToSet = 20;
+  Person.findOneAndUpdate({name:personName},{age:ageToSet},{new:true},function(err,data){
+    if(err) return console.error(err)
+    done(null, data);
+  })
+  
+}; 
+// findOneAndUpdate method find the document and update it 
+// By default this function do not return a update document ,so we have to pass another arguement ({new:true}) to return updated one.
+  
+```
+#### Delete One Document Using model.findByIdAndRemove
+
+### <ins>Solution</ins>
+
+`app.js`
+
+```
+var removeById = function(personId, done) {
+  Person.findOneAndRemove({_id:personId},function(err,data){
+       if(err) return console.error(err)
+    done(null, data);
+  })
+    
+}; 
+  
+```
+
+#### Delete Many Documents with model.remove()
+
+### <ins>Solution</ins>
+
+`app.js`
+
+```
+var removeManyPeople = function(done) {
+  var nameToRemove = "Mary";
+  Person.remove({name:nameToRemove},function(err,data){
+    if(err) return console.error(err)
+    done(null, data);
+  })
+
+};
+ // `Model.remove()` is useful to delete all the documents matching given criteria.
+// Delete all the people whose name is "Mary", using `Model.remove()`.
+// Pass to it a query ducument with the "name" field set, and of course a callback.
+
+  
+```
+
+#### Chain Search Query Helpers to Narrow Search Results
+
+### <ins>Solution</ins>
+
+`app.js`
+
+```
+var queryChain = function(done) {
+  var foodToSearch = "burrito";
+  Person.find({favoriteFoods:foodToSearch}).sort({name:1}).limit(2).select({age:false}).exec((err,data)=>{
+     if(err) return console.error(err)
+    done(null, data);  
+  })
+};
+// to sort 1 represent 'ascending' , -1 for 'descending'
+// to hide a property 'false'
+  
+```
