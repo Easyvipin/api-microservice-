@@ -1,7 +1,6 @@
 # FreeCodeCamp Api and microservice :computer:
 This repo contains the solution of freeCodeCamp course (API AND MICROSERVICE)
 
-### SECTIONS :PARTS:
 
 # npm(node package manager)
  npm is package manager command line tool which is used to share and install different modules or package written in javascript.
@@ -13,6 +12,182 @@ This repo contains the solution of freeCodeCamp course (API AND MICROSERVICE)
  ### package.json 
  This file gives the detailed information about the project like name,author,dependancies.
  It keeps track of the version of other package the project depends on ,so the project does'nt break if the dependent package update.
+ 
+## Exercise of npm
+
+#### How to Use package.json, the Core of Any Node.js Project or npm Package
+
+### <ins>Solution</ins>
+`package.json`
+```
+{
+	"name": "fcc-learn-npm-package-json",
+	"author": "Easyvipin",
+	"dependencies": {
+		"express": "^4.14.0"
+	},
+```
+#### Add a Description to Your package.json
+
+### <ins>Solution</ins>
+`package.json`
+```
+{
+	"name": "fcc-learn-npm-package-json",
+	"author": "Easyvipin",
+  "description":"app build for gamers", // tells about the description about your package
+	"dependencies": {
+		"express": "^4.14.0"
+	}
+```
+#### Add Keywords to Your package.json
+
+### <ins>Solution</ins>
+`package.json`
+```
+{
+	"name": "fcc-learn-npm-package-json",
+	"author": "Easyvipin",
+  "description":"app build for gamers",
+  "keywords":["freecodecamp","heroku","games"],
+	"dependencies": {
+		"express": "^4.14.0"
+	},
+```
+#### Add a License to Your package.json
+
+### <ins>Solution</ins>
+`package.json`
+```
+// LICENSE inform the user what they can do with the projects.
+{
+	"name": "fcc-learn-npm-package-json",
+	"author": "Easyvipin",
+  "description":"app build for gamers",
+  "keywords":["freecodecamp","heroku","games"],
+  "license":"MIT",
+	"dependencies": {
+		"express": "^4.14.0"
+	},
+```
+#### Add a Version to Your package.json
+### <ins>Solution</ins>
+`package.json`
+```
+// version of the project
+
+{
+	"name": "fcc-learn-npm-package-json",
+	"author": "Easyvipin",
+  "description":"app build for gamers",
+  "keywords":["freecodecamp","heroku","games"],
+  "license":"MIT",
+	"dependencies": {
+		"express": "^4.14.0"
+	},
+  "version":"1.0.0",
+```
+
+#### Expand Your Project with External Packages from npm
+### <ins>Solution</ins>
+`package.json`
+
+```
+{
+	"name": "fcc-learn-npm-package-json",
+	"author": "Easyvipin",
+  "description":"app build for gamers",
+  "keywords":["freecodecamp","heroku","games"],
+  "license":"MIT",
+	"dependencies": {
+		"express": "^4.14.0",
+    "moment": "^2.14.0"
+	},	
+```
+#### Manage npm Dependencies By Understanding Semantic Versioning
+### <ins>Solution</ins>
+`package.json`
+
+```
+{
+
+// major(major change) ,patch(bug fix), minor(back-end change)
+
+	"name": "fcc-learn-npm-package-json",
+	"author": "Easyvipin",
+  "description":"app build for gamers",
+  "keywords":["freecodecamp","heroku","games"],
+  "license":"MIT",
+  "dependencies": {
+    "express": "^4.14.0",
+    "moment": "2.10.2"
+	},
+	},
+	
+```
+#### Use the Tilde-Character to Always Use the Latest Patch Version of a Dependency
+### <ins>Solution</ins>
+`package.json`
+
+```
+{
+
+// major(major change) ,patch(bug fix), minor(back-end change)
+
+	"name": "fcc-learn-npm-package-json",
+	"author": "Easyvipin",
+  "description":"app build for gamers",
+  "keywords":["freecodecamp","heroku","games"],
+  "license":"MIT",
+  "dependencies": {
+    "express": "^4.14.0",
+    "moment": "~2.10.2"
+	},
+	},
+	
+```
+#### Use the Caret-Character to Use the Latest Minor Version of a Dependency
+### <ins>Solution</ins>
+`package.json`
+
+```
+{
+
+// major(major change) ,patch(bug fix), minor(back-end change)
+
+	"name": "fcc-learn-npm-package-json",
+	"author": "Easyvipin",
+  "description":"app build for gamers",
+  "keywords":["freecodecamp","heroku","games"],
+  "license":"MIT",
+  "dependencies": {
+    "express": "^4.14.0",
+    "moment": "^2.10.2"
+	},
+	},
+	
+```
+#### Remove a Package from Your Dependencies
+### <ins>Solution</ins>
+`package.json`
+
+```
+{
+
+// major(major change) ,patch(bug fix), minor(back-end change)
+
+	"name": "fcc-learn-npm-package-json",
+	"author": "Easyvipin",
+  "description":"app build for gamers",
+  "keywords":["freecodecamp","heroku","games"],
+  "license":"MIT",
+  "dependencies": {
+    "express": "^4.14.0",
+	},
+	},
+	
+```
+
 
 # MONGODB AND MONGOOSE
 ***what is mongodb?***
